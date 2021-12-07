@@ -2,7 +2,7 @@ CXX=g++
 RM=rm -rf
 CPPFLAGS=-g
 LDFLAGS=-g
-SRCS:= $(wildcard *.cpp)
+SRCS:= $(wildcard src/*.cpp)
 OBJS=$(subst .cpp,.o,$(SRCS))
 MAIN_BIN=mini_aes
 
@@ -16,8 +16,8 @@ DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 
 COMPILE.c = $(CXX) $(DEPFLAGS) $(CPPFLAGS) -c
 
-%.o : %.cpp
-%.o : %.cpp $(DEPDIR)/%.d | $(DEPDIR)
+src/%.o : %.cpp
+src/%.o : %.cpp $(DEPDIR)/%.d | $(DEPDIR)
 	$(COMPILE.c) $<
 
 $(DEPDIR): ; @mkdir -p $@
