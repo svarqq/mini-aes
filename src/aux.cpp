@@ -39,7 +39,9 @@ std::string blks_to_text(unsigned short *blks, int num_blks) {
         unsigned char char1 = blks[i] >> NUMBITS_CHAR;
         unsigned char char2 = blks[i];   // retains first 8 of 16 bits
         plaintext.push_back(char1);
-        plaintext.push_back(char2);
+        if (char2 != 0) {
+            plaintext.push_back(char2);
+        }
     }
     return plaintext;
 }
