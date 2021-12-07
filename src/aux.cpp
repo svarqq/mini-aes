@@ -1,3 +1,5 @@
+#include <math.h>
+
 #include "aux.h"
 #include <iostream>
 
@@ -14,24 +16,28 @@ const subtable DECTABLE ({
     {12, 11}, {13,  2}, {14,  0}, {15,  5}
 });
 const int NUMBITS_NIB = 4;
+const int NUMBITS_CHAR = 8;
 const int NUMBITS_BLK = 16;
 const int NUMNIBSINBLK = NUMBITS_BLK / NUMBITS_NIB;
+const int NUMKEYS = 3;
 
-void plaintext_to_blks(std::string plaintext, unsigned short *blks) {
+void text_to_blks(std::string plaintext, unsigned short *blks) {
     for (int i=0; i<plaintext.length(); i+=2) {
+        unsigned char byte1 = plaintext[i];
         if (i < plaintext.length() - 1) {
-            blks[i/2] = (unsigned short)(plaintext[i] << NUMBITS_BLK/2) + plaintext[i+1];
+            unsigned char byte0 = plaintext[i+1];
+            blks[i/2] = (unsigned short)(byte1 << NUMBITS_CHAR) + byte0;
         } else {
-            blks[i/2] = (unsigned short)(plaintext[i] << NUMBITS_BLK/2);
+            blks[i/2] = (unsigned short)(byte1 << NUMBITS_CHAR);
         }
     }
 }
 
-std::string blks_to_plaintext(unsigned short *blks, int num_blks) {
+std::string blks_to_text(unsigned short *blks, int num_blks) {
     std::string plaintext = "";
     for (int i=0; i<num_blks; i++) {
-        char char1 = (char) (blks[i] >> 8);
-        char char2 = (char) (blks[i] & 255);
+        unsigned char char1 = blks[i] >> NUMBITS_CHAR;
+        unsigned char char2 = blks[i];   // retains first 8 of 16 bits
         plaintext.push_back(char1);
         plaintext.push_back(char2);
     }
