@@ -27,6 +27,17 @@ void plaintext_to_blks(std::string plaintext, unsigned short *blks) {
     }
 }
 
+std::string blks_to_plaintext(unsigned short *blks, int num_blks) {
+    std::string plaintext = "";
+    for (int i=0; i<num_blks; i++) {
+        char char1 = (char) (blks[i] >> 8);
+        char char2 = (char) (blks[i] & 255);
+        plaintext.push_back(char1);
+        plaintext.push_back(char2);
+    }
+    return plaintext;
+}
+
 void blktonibs(unsigned short blk, unsigned short outnibs[NUMNIBSINBLK]) {
     for (int i=0; i<NUMNIBSINBLK; i++) {
         outnibs[i] = (blk >> ((NUMBITS_NIB-1) - i)*NUMBITS_NIB) & (NUMBITS_BLK - 1);

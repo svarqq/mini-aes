@@ -12,6 +12,7 @@ extern const int NUMBITS_BLK;
 extern const int NUMNIBSINBLK;
 
 void plaintext_to_blks(std::string, unsigned short *);
+std::string blks_to_plaintext(unsigned short *, int);
 void blktonibs(unsigned short, unsigned short *);
 unsigned short nibstoblk(unsigned short *);
 
