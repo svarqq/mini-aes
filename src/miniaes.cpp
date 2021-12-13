@@ -1,11 +1,5 @@
-#include <string>
 #include <iostream>
-#include <fstream>
-#include <stdexcept>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
-#include <cstring>
+#include <string>
 
 #include "aux.h"
 #include "crypto.h"
@@ -16,7 +10,8 @@ int main(int argc, char **argv) {
     std::string aes_process;
     std::string aes_target;
     if (argc == 3) {
-        if (strcmp(argv[1], "encrypt") == 0 || strcmp(argv[1], "decrypt") == 0) {
+        if (((std::string)"encrypt").compare(argv[1]) == 0 || 
+                ((std::string)"decrypt").compare(argv[1]) == 0) {
             aes_process = argv[1];
             aes_target = argv[2];
         } else {
@@ -53,7 +48,6 @@ int main(int argc, char **argv) {
         std::string out_fname;
         int directory_idx = aes_target.rfind("/");
         int extension_idx = aes_target.rfind(".");
-        std::cout << directory_idx << " | " << extension_idx << "\n";
         if (aes_process.compare("encrypt") == 0) {
             out_fname += "encrypted/";
             out_fname += aes_target.substr(directory_idx + 1, extension_idx-directory_idx-1);

@@ -3,3 +3,4 @@ mini_aes
 .deps/*
 decrypted/
 encrypted/
+.vscode/
