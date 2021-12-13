@@ -2,9 +2,9 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 #include "aux.h"
-#include <iostream>
 
 
 const subtable ENCTABLE ({
@@ -24,12 +24,6 @@ const int NUMBITS_CHAR = 8;
 const int NUMBITS_BLK = 16;
 const int NUMNIBSINBLK = NUMBITS_BLK / NUMBITS_NIB;
 const int NUMKEYS = 3;
-
-std::string get_filetext(std::ifstream &file) {
-    std::stringstream filebuf;
-    filebuf << file.rdbuf();
-    return filebuf.str();
-}
 
 void text_to_blks(std::string plaintext, unsigned short *blks) {
     for (int i=0; i<plaintext.length(); i+=2) {
@@ -70,3 +64,19 @@ unsigned short nibstoblk(unsigned short nibs[NUMNIBSINBLK]) {
     return blk;
 }
 
+std::string get_filetext(std::ifstream &file) {
+    std::stringstream filebuf;
+    filebuf << file.rdbuf();
+    return filebuf.str();
+}
+
+void print_formatted_result(std::string intext, std::string outtext) {
+    std::cout << "  ////////////////\n";
+    std::cout << " // Input Text //\n";
+    std::cout << "////////////////\n";
+    std::cout << intext << "\n\n";
+    std::cout << "  /////////////////\n";
+    std::cout << " // Output Text //\n";
+    std::cout << "/////////////////\n";
+    std::cout << outtext << "\n";
+}

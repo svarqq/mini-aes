@@ -13,11 +13,12 @@ extern const int NUMBITS_BLK;
 extern const int NUMNIBSINBLK;
 extern const int NUMKEYS;
 
-std::string get_filetext(std::ifstream &);
 void text_to_blks(std::string, unsigned short *);
 std::string blks_to_text(unsigned short *, int);
 void blktonibs(unsigned short, unsigned short *);
 unsigned short nibstoblk(unsigned short *);
+std::string get_filetext(std::ifstream &);
+void print_formatted_result(std::string, std::string);
 
 #endif
 
