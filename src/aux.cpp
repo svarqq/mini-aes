@@ -1,7 +1,11 @@
 #include <math.h>
+#include <string>
+#include <fstream>
+#include <sstream>
 
 #include "aux.h"
 #include <iostream>
+
 
 const subtable ENCTABLE ({
     { 0, 14}, { 1,  4}, { 2, 13}, { 3,  1},
@@ -20,6 +24,12 @@ const int NUMBITS_CHAR = 8;
 const int NUMBITS_BLK = 16;
 const int NUMNIBSINBLK = NUMBITS_BLK / NUMBITS_NIB;
 const int NUMKEYS = 3;
+
+std::string get_filetext(std::ifstream &file) {
+    std::stringstream filebuf;
+    filebuf << file.rdbuf();
+    return filebuf.str();
+}
 
 void text_to_blks(std::string plaintext, unsigned short *blks) {
     for (int i=0; i<plaintext.length(); i+=2) {
