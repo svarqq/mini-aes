@@ -1,5 +1,4 @@
 #include <math.h>
-#include <string>
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -22,7 +21,7 @@ const subtable DECTABLE ({
 const int NUMBITS_NIB = 4;
 const int NUMBITS_CHAR = 8;
 const int NUMBITS_BLK = 16;
-const int NUMNIBSINBLK = NUMBITS_BLK / NUMBITS_NIB;
+const int NUMNIBSINBLK = 4;
 const int NUMKEYS = 3;
 
 void text_to_blks(std::string plaintext, unsigned short *blks) {
