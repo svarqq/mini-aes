@@ -1,3 +1,5 @@
 *.o
 mini_aes
 .deps/*
+decrypted/
+encrypted/
