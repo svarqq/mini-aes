@@ -8,4 +8,3 @@ unsigned short shiftrow(unsigned short blk) {
     nibs[1] = tmp;
     return nibstoblk(nibs);
 }
-

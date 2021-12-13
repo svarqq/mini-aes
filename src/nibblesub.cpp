@@ -19,4 +19,3 @@ unsigned short sub_blkdec(unsigned short blk) {
 }
 
 unsigned short sub_nibdec(unsigned short nibble) { return DECTABLE.at(nibble); }
-

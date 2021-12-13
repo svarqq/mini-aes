@@ -4,4 +4,3 @@
 unsigned short mixcolumn(unsigned short);
 
 #endif
-

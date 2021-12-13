@@ -22,4 +22,3 @@ void write_file(std::string, std::string);
 void print_formatted_result(std::string, std::string);
 
 #endif
-

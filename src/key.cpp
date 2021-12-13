@@ -13,7 +13,7 @@ void genkeys(unsigned short secret_key, unsigned short outkeys[3]) {
     unsigned short key = secret_key;
     outkeys[0] = key;
 
-    unsigned short keyarr[NUMNIBSINBLK] = {};
+    unsigned short keyarr[NUMNIBSINBLK];
     blktonibs(key, keyarr);
 
     keyarr[0] ^= sub_nibenc(keyarr[3]) ^ RCON1;
@@ -26,4 +26,3 @@ void genkeys(unsigned short secret_key, unsigned short outkeys[3]) {
     key = nibstoblk(keyarr);
     outkeys[2] = key;
 }
-

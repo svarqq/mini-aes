@@ -5,4 +5,3 @@ unsigned short keyadd(unsigned short, unsigned short);
 void genkeys(unsigned short, unsigned short *);
 
 #endif
-

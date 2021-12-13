@@ -4,4 +4,3 @@
 unsigned short shiftrow(unsigned short);
 
 #endif
-

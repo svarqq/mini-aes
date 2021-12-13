@@ -7,4 +7,3 @@ unsigned short sub_blkdec(unsigned short);
 unsigned short sub_nibdec(unsigned short);
 
 #endif
-

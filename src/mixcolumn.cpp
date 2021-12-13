@@ -41,4 +41,3 @@ unsigned short gf_mult(unsigned short nib1, unsigned short nib2) {
 
     return mult;
 }
-

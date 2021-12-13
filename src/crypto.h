@@ -7,4 +7,3 @@ std::string encrypt(std::string);
 std::string decrypt(std::string);
 
 #endif
-
