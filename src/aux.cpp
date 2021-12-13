@@ -70,6 +70,13 @@ std::string get_filetext(std::ifstream &file) {
     return filebuf.str();
 }
 
+void write_file(std::string fname, std::string text) {
+    std::ofstream file;
+    file.open(fname, std::ofstream::out | std::ofstream::trunc);
+    file << text;
+    file.close();
+}
+
 void print_formatted_result(std::string intext, std::string outtext) {
     std::cout << "  ////////////////\n";
     std::cout << " // Input Text //\n";

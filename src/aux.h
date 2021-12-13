@@ -18,6 +18,7 @@ std::string blks_to_text(unsigned short *, int);
 void blktonibs(unsigned short, unsigned short *);
 unsigned short nibstoblk(unsigned short *);
 std::string get_filetext(std::ifstream &);
+void write_file(std::string, std::string);
 void print_formatted_result(std::string, std::string);
 
 #endif
