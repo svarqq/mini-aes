@@ -135,6 +135,8 @@ int main(int argc, char **argv) {
             out_fname += ".dec";
         }
         write_file(out_fname, outtext);
+        std::cout << aes_process << "ed text of '" << aes_target 
+            << "' written to file '" << out_fname << "'.\n";
     } else {
         print_formatted_result(intext, outtext);
     }
